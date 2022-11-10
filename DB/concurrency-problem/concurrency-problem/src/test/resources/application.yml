@@ -1,0 +1,39 @@
+spring:
+
+  # redis
+  redis:
+    host:
+    password:
+    port: 6379
+
+  # Datasource
+  datasource:
+    hikari:
+      maximum-pool-size: 30
+      max-lifetime: 60000
+      jdbc-url: jdbc:mysql://localhost:3306/marketgola
+      username: root
+      password:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      connection-timeout: 5000
+      pool-name: Spring-HikariPool
+
+namedlock:
+  datasource:
+    hikari:
+      maximum-pool-size: 20
+      max-lifetime: 60000
+      jdbc-url: jdbc:mysql://localhost:3306/marketgola
+      username: root
+      password:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      connection-timeout: 5000
+      pool-name: NamedLock-HikariPool
+
+# mybatis
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: 'true'
+  type-aliases-package:
+    com.db.concurrencyproblem
